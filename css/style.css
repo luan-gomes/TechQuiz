@@ -1,0 +1,188 @@
+/*
+Paleta de Cores:
+
+Azul: #004A88
+Azul escuro: #1D4261;
+Rosa: #DF1A86
+Roxo: #511C7A
+Cinza: #cdcdcd
+*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body{
+	height: 100%;
+	font-family: 'Encode Sans', sans-serif;
+}
+
+input{
+	width: 90%;
+	font-family: 'Encode Sans', sans-serif;
+	font-size: 18px;
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+	border-bottom: 0.5px solid #cdcdcd;
+	outline: none;
+}
+
+ input[type=submit]{
+ 	width: 100%;
+	color: #ffffff;
+	border:none;
+	background-color: #511C7A;
+ 	border-radius: 3px;
+ 	font-weight: normal;
+	height: 42px;
+	outline: none;
+	cursor: pointer;
+}
+
+.login-container{
+	margin: 0 auto;
+	width: 440px;
+	height: 600px;
+	box-sizing: border-box;
+	padding: 5px 30px;
+	text-align: center;
+}
+
+.login-logo{
+	width: 250px;
+	padding: 20px 0px;
+}
+
+#login-container-button{
+	padding-top: 20px;
+}
+
+.login-form label img{
+	width: 25px;
+	vertical-align: middle;
+}
+
+.login-container-input{
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
+
+#login-msg-error{
+	color: #DF1A86;
+	font-size: 14px;
+	display:none;
+}
+
+/*Páginas internas*/
+
+/*WELCOME*/
+
+#inside-sidemenu{
+	width: 280px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background-color: #511C7A;
+}
+
+#inside-logo{
+	width: 200px;
+	margin: 50px auto 0px auto;
+	display:block;
+}
+
+#inside-sidemenu nav{
+	padding-top: 50px;
+}
+
+#inside-sidemenu nav a{
+	display: block;
+	text-decoration: none;
+	color: #cdcdcd;
+	padding: 15px 30px;
+	box-sizing: border-box;
+	transition: all 0.3s ease-in-out;
+}
+
+#inside-sidemenu nav a:hover{
+	background: #ffffff;
+	color: #511C7A;
+	border-left: 5px solid #DF1A86;
+	padding: 15px 30px 15px 25px;
+}
+
+#inside-sidemenu nav a .fa{
+	color: #DF1A86;
+	font-size: 1.4rem;
+	margin-right: 0.8rem;
+	display: inline-block;
+	width: 30px;
+	position: relative;
+	top: 2px;
+}
+
+#inside-sidemenu .active{
+	background: #ffffff;
+	color: #511C7A;
+	border-left: 5px solid #DF1A86;
+	padding: 15px 30px 15px 25px;
+}
+
+#inside-content{
+	margin-left: 280px;
+	padding: 50px;
+}
+
+#inside-header h1{
+	color: #511C7A;
+	padding-bottom: 15px;
+}
+
+.inside-content-container{
+	width: 49%;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.inside-content-container label{
+	display: block;
+}
+
+.inside-content-container input{
+	width: 95%;
+}
+
+/*CADASTRO DE QUESTÕES*/
+
+.select-button{
+	margin-top: 42px;
+}
+
+.inside-question-input{
+	margin-bottom: 10px;
+}
+
+.inside-question-input label{
+	display: block;
+}
+
+.inside-question-input input{
+	width: 100%;
+}
+
+.container-questao h3{
+	color: #511C7A;
+	padding: 57px 0px 15px 0px;
+}
+
+.after-select{
+	margin-top: 62px;
+}
+
+#vf, #unica, #aberta{
+	display: none;
+}
+
+
