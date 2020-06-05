@@ -14,6 +14,7 @@
 
 		function cadastrarGerenciador(){
 
+
 			$conexao = abrirConexao();
 			$sql = 'INSERT INTO gerenciador VALUES(null,"'.$this->gerenciador->login.'","'.$this->gerenciador->senha.'")';
 			mysqli_query($conexao,$sql);
@@ -33,6 +34,7 @@
 
 		function validarLogin(){
 
+			$mensagem = array();
 			$conexao = abrirConexao();
 			$sql = 'SELECT * FROM gerenciador WHERE login="'.$this->gerenciador->login.'" AND senha="'.$this->gerenciador->senha.'"';
 			$resultado = mysqli_query($conexao,$sql);
@@ -41,7 +43,12 @@
 				$dados = mysqli_fetch_array($resultado);
 				$_SESSION["id"] = $dados['id'];
 				$_SESSION["usuario"] = $dados['login'];
-				header('Location: ../welcome.php');
+				$mensagem['ok'] = '1';
+				die(json_encode($mensagem));
+				
+			} else {
+				$mensagem['erro'] = "Usuário ou senha incorretos!";
+				die(json_encode($mensagem));
 			}
 
 			fecharConexao($conexao);
@@ -51,7 +58,7 @@
 	}
 
 
-	if(isset($_POST['cad-gerenciador'])){
+	if(isset($_POST['cad_gerenciador'])){
 
 		$username =  $_POST['username'];
 		$password =  $_POST['pass'];
@@ -60,18 +67,18 @@
 		$control = new GerenciadorDAO($manager);
 		$control->cadastrarGerenciador();
 
-	} else if(isset($_POST['alterar-senha-gerenciador'])){
+	} else if(isset($_POST['alterar_senha_gerenciador'])){
 
 		$id = $_POST['id'];
 		$username = $_POST['usuario'];
-		$password =  $_POST['senha-antiga'];
-		$passtwo = $_POST['senha-nova'];
+		$password =  $_POST['senha_antiga'];
+		$passtwo = $_POST['senha_nova'];
 
 		$manager = new Gerenciador($username,$password);
 		$control = new GerenciadorDAO($manager);
 		$control->alterarSenha($passtwo,$id);
 
-	} else if(isset($_POST['entrar-login-gerenciador'])){
+	} else if(isset($_POST['entrar_login_gerenciador'])){
 
 		$login = $_POST['username'];
 		$senha = $_POST['pass'];

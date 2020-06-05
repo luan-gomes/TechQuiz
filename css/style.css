@@ -59,7 +59,7 @@ input{
 	padding-top: 20px;
 }
 
-.login-form label img{
+#login-form label img{
 	width: 25px;
 	vertical-align: middle;
 }
@@ -72,7 +72,6 @@ input{
 #login-msg-error{
 	color: #DF1A86;
 	font-size: 14px;
-	display:none;
 }
 
 /*Páginas internas*/
@@ -181,7 +180,7 @@ input{
 	margin-top: 62px;
 }
 
-#vf, #unica, #aberta{
+#vf, #unica-alt, #aberta{
 	display: none;
 }
 

@@ -18,7 +18,7 @@
 
 		 	$('#tipo-questao').change(function(){
 		 		if($('#tipo-questao').val()=="UN"){
-		 			$('#unica').show(500);
+		 			$('#unica-alt').show(500);
 		 		} else {
 		 			$('#unica').hide();
 		 		} if($('#tipo-questao').val()=="VF"){
@@ -32,7 +32,99 @@
 		 		}
 		 	});
 
-		 	$('#menu-item-alterarsenha').addClass('active');
+		 	$('#menu-item-cadastrarquestoes').addClass('active');
+
+		 	$('#cad-questao-aberta').on('submit',function(e){
+
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: 'control/QuestaoAbertaDAO.php',
+					data:{
+						cadastrar_aberta: $('#aberta_button').val(),
+						nome_aberta: $('#nome_aberta').val(),
+						titulo_aberta: $('#titulo_aberta').val(),
+						resposta_aberta: $('#resposta_aberta').val()
+					},
+					success:function(){
+						alert('Questão aberta cadastrada com sucesso!');
+						$('#nome_aberta').val('');
+						$('#titulo_aberta').val('');
+						$('#resposta_aberta').val('');
+					},
+					error:function(){
+						alert('Infelizmente, não foi possível cadastrar esse questão!');
+					}
+				});
+				
+			});
+
+
+		 	$('#cad-questao-unica').on('submit',function(e){
+
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: 'control/QuestaoUnicaDAO.php',
+					data:{
+						cadastrar_unica: $('#unica').val(),
+						nome: $('#nome_unica').val(),
+						titulo: $('#titulo_unica').val(),
+						alternativa_a: $('#a').val(),
+						alternativa_b: $('#b').val(),
+						alternativa_c: $('#c').val(),
+						alternativa_d: $('#d').val(),
+						alternativa_e: $('#e').val(),
+						alt_correta: $('#alternativa-correta').val()
+					},
+					success:function(){
+						alert('Questão única cadastrada com sucesso!');
+						$('#nome_unica').val('');
+						$('#titulo_unica').val('');
+						$('#a').val('');
+						$('#b').val('');
+						$('#c').val('');
+						$('#d').val('');
+						$('#e').val('');
+						$('#alternativa-correta').val('');
+					},
+					error:function(){
+						alert('Infelizmente, não foi possível cadastrar esse questão!');
+					}
+				});
+				
+			});
+
+
+		 	$('#cad-questao-vf').on('submit',function(e){
+		 		
+				e.preventDefault();
+
+				$.ajax({
+					type: "POST",
+					url: 'control/QuestaoVFDAO.php',
+					data:{
+						cadastrar_vf: $('#vf-button').val(),
+						nome: $('#nome_vf').val(),
+						titulo: $('#titulo_vf').val(),
+						afirmacao: $('#afirmacao').val(),
+						veracidade: $('#veracidade').val()
+					},
+					success:function(){
+						alert('Gerenciador cadastrado com sucesso!');
+						$('#nome_vf').val('');
+						$('#titulo_vf').val('');
+						$('#afirmacao').val('');
+						$('#afirmacao').val('');
+					},
+					error:function(){
+						alert('Infelizmente, não foi possível cadastrar esse questão!');
+					}
+				});
+				
+			});
 
 		});
 	</script>
@@ -42,7 +134,6 @@
 <?php
 	include_once('sidemenu.php');
 ?>
-
 
 	<section id="inside-content">
 
@@ -61,68 +152,68 @@
 
 		<div id="aberta" class="container-questao">
 			<h3>Questão Aberta</h3>
-			<form>
+			<form id="cad-questao-aberta" method="post">
 				<div class="inside-question-input">
-					<label for="name">Nome da Questão</label>
-					<input type="text" name="name" required />
+					<label for="nome">Nome da Questão</label>
+					<input id="nome_aberta" type="text" name="nome_aberta" required />
 				</div>
 				<div class="inside-question-input">
 					<label for="titulo">Título da Questão</label>
-					<input type="text" name="titulo" required />
+					<input id="titulo_aberta" type="text" name="titulo_aberta" required />
 				</div>
 				<div class="inside-question-input">
 					<label for="resposta">Resposta da Questão</label>
-					<input type="text" name="resposta" required />
+					<input id="resposta_aberta" type="text" name="resposta_aberta" required />
 				</div>
 				<div class="cad-container-button">
-					<input type="submit" name="cadastrar-aberta" value="Cadastrar" />
+					<input id="aberta_button" type="submit" name="cadastrar_aberta" value="Cadastrar" />
 				</div>
 			</form>
 		</div> <!-- container-questao-aberta -->
 
-		<div id="unica" class="container-questao">
+		<div id="unica-alt" class="container-questao">
 
 			<h3>Questão Única</h3>
 
-			<form>
+			<form id="cad-questao-unica" method="post">
 
 				<div class="inside-question-input">
-					<label for="name">Nome da Questão</label>
-					<input type="text" name="name" required />
+					<label for="nome">Nome da Questão</label>
+					<input id="nome_unica" type="text" name="nome" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
 					<label for="titulo">Título da Questão</label>
-					<input type="text" name="titulo" required />
+					<input id="titulo_unica" type="text" name="titulo" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
-					<label for="alternativa-a">Alternativa A</label>
-					<input type="text" name="alternativa-a" required />
+					<label for="alternativa_a">Alternativa A</label>
+					<input id="a" type="text" name="alternativa_a" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
-					<label for="alternativa-b">Alternativa B</label>
-					<input type="text" name="alternativa-b" required />
+					<label for="alternativa_b">Alternativa B</label>
+					<input id="b" type="text" name="alternativa_b" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
-					<label for="alternativa-c">Alternativa C</label>
-					<input type="text" name="alternativa-c" required />
+					<label for="alternativa_c">Alternativa C</label>
+					<input id="c" type="text" name="alternativa_c" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
-					<label for="alternativa-d">Alternativa D</label>
-					<input type="text" name="alternativa-d" required />
+					<label for="alternativa_d">Alternativa D</label>
+					<input id="d" type="text" name="alternativa_d" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
-					<label for="alternativa-e">Alternativa E</label>
-					<input type="text" name="alternativa-e" required />
+					<label for="alternativa_e">Alternativa E</label>
+					<input id="e" type="text" name="alternativa_e" required />
 				</div> <!-- inside-question-input -->
 
 				<div id="container-select">
-					<select id="alternativa-correta" class="wide" name="alt-correta" required>
+					<select id="alternativa-correta" class="wide" name="alt_correta" required>
 						<option data-display="Qual a alternativa correta?"></option>
 						<option value="A">Alternativa A</option>
 						<option value="B">Alternativa B</option>
@@ -133,7 +224,7 @@
 				</div> <!--container-select -->
 
 				<div class="cad-container-button after-select">
-					<input type="submit" name="cadastrar-unica" value="Cadastrar" />
+					<input id="unica" type="submit" name="cadastrar_unica" value="Cadastrar" />
 				</div>
 
 			</form>
@@ -144,33 +235,33 @@
 
 			<h3>Questão Verdadeiro ou Falso</h3>
 
-			<form>
+			<form id="cad-questao-vf" method="post">
 
 				<div class="inside-question-input">
-					<label for="name">Nome da Questão</label>
-					<input type="text" name="name" required />
+					<label for="nome">Nome da Questão</label>
+					<input id="nome_vf" type="text" name="nome" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
 					<label for="titulo">Título da Questão</label>
-					<input type="text" name="titulo" required />
+					<input id="titulo_vf" type="text" name="titulo" required />
 				</div> <!-- inside-question-input -->
 
 				<div class="inside-question-input">
 					<label for="afirmacao">Afirmação</label>
-					<input type="text" name="afirmacao" required />
+					<input id="afirmacao" type="text" name="afirmacao" required />
 				</div> <!-- inside-question-input -->
 
 				<div id="container-select">
-					<select id="veracidade" class="wide" name="verd-false" required>
+					<select id="veracidade" class="wide" name="veracidade" required>
 						<option data-display="A afirmação é verdeira ou falsa?"></option>
-						<option value="V">Verdadeira</option>
-						<option value="F">Falsa</option>
+						<option value="1">Verdadeira</option>
+						<option value="0">Falsa</option>
 					</select>
 				</div> <!--container-select -->
 
 				<div class="cad-container-button after-select" >
-					<input type="submit" name="cadastrar-vf" value="Cadastrar" />
+					<input id="vf-button" type="submit" name="cadastrar_vf" value="Cadastrar" />
 				</div>
 
 			</form>
