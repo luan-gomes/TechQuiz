@@ -20,7 +20,7 @@
 		 		if($('#tipo-questao').val()=="UN"){
 		 			$('#unica-alt').show(500);
 		 		} else {
-		 			$('#unica').hide();
+		 			$('#unica-alt').hide();
 		 		} if($('#tipo-questao').val()=="VF"){
 		 			$('#vf').show(500);
 		 		} else {
@@ -109,15 +109,13 @@
 						cadastrar_vf: $('#vf-button').val(),
 						nome: $('#nome_vf').val(),
 						titulo: $('#titulo_vf').val(),
-						afirmacao: $('#afirmacao').val(),
 						veracidade: $('#veracidade').val()
 					},
 					success:function(){
-						alert('Gerenciador cadastrado com sucesso!');
+						alert('Questão de Verdadeiro ou Falso cadastrada com sucesso!');
 						$('#nome_vf').val('');
 						$('#titulo_vf').val('');
-						$('#afirmacao').val('');
-						$('#afirmacao').val('');
+						$('#veracidade').val('');
 					},
 					error:function(){
 						alert('Infelizmente, não foi possível cadastrar esse questão!');
@@ -245,11 +243,6 @@
 				<div class="inside-question-input">
 					<label for="titulo">Título da Questão</label>
 					<input id="titulo_vf" type="text" name="titulo" required />
-				</div> <!-- inside-question-input -->
-
-				<div class="inside-question-input">
-					<label for="afirmacao">Afirmação</label>
-					<input id="afirmacao" type="text" name="afirmacao" required />
 				</div> <!-- inside-question-input -->
 
 				<div id="container-select">

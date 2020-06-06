@@ -72,6 +72,7 @@ input{
 #login-msg-error{
 	color: #DF1A86;
 	font-size: 14px;
+	font-weight: bold;
 }
 
 /*Páginas internas*/
@@ -184,4 +185,58 @@ input{
 	display: none;
 }
 
+/* BUSCA DE QUESTÕES */
 
+.tabela-edicao {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tabela-edicao th{
+	background-color: #511C7A;
+	color: #ffffff;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.tabela-edicao th,.tabela-edicao td{
+	padding: 15px;
+	text-align: left;
+}
+
+.container-buscar-questao h3{
+	padding: 15px 0px;
+	color: #511C7A;
+}
+
+#editar{
+	display:block;
+	width: 30px;
+	height: 30px;
+	background-color: #004A88;
+	border-radius: 50px; 
+	text-align: center;
+}
+
+#deletar{
+	display:block;
+	width: 30px;
+	height: 30px;
+	background-color: #DF1A86;
+	border-radius: 50px; 
+	text-align: center;
+}
+
+#editar .fa{
+	position: relative;
+	top: 3.5px;
+	color: #ffffff;
+}
+
+#deletar .fa{
+	position: relative;
+	top: 3.5px;
+	color: #ffffff;
+}
