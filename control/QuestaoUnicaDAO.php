@@ -34,6 +34,18 @@
 			fecharConexao($conexao);
 
 		}
+
+		function deletarQuestao(){
+
+			$conexao = abrirConexao();
+			$sql_2 = 'DELETE FROM questao_multipla WHERE questoes_id="'.$this->questao.'"';
+			mysqli_query($conexao,$sql_2);
+			$sql = 'DELETE FROM questoes WHERE id="'.$this->questao.'"';
+			mysqli_query($conexao,$sql);
+			fecharConexao($conexao);
+			header('Location: ../buscar-questoes.php');
+
+		}
 	} 
 
 	if(isset($_POST['cadastrar_unica'])){
@@ -67,6 +79,12 @@
 		$manager = new QuestaoUnica($nome,$titulo,$a,$b,$c,$d,$e,$alt_correta);
 		$control = new QuestaoUnicaDAO($manager);
 		$control->editarQuestao($questoes_id,$unica_id);
+
+	} else if(isset($_GET['id'])){
+
+		$id = $_GET['id'];
+		$control = new QuestaoUnicaDAO($id);
+		$control->deletarQuestao();
 
 	}
 

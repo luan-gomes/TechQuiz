@@ -33,6 +33,18 @@
 			fecharConexao($conexao);
 
 		}
+
+		function deletarQuestao(){
+
+			$conexao = abrirConexao();
+			$sql_2 = 'DELETE FROM questao_aberta WHERE questoes_id="'.$this->questao.'"';
+			mysqli_query($conexao,$sql_2);
+			$sql = 'DELETE FROM questoes WHERE id="'.$this->questao.'"';
+			mysqli_query($conexao,$sql);
+			fecharConexao($conexao);
+			header('Location: ../buscar-questoes.php');
+
+		}
 	}
 
 	if(isset($_POST['cadastrar_aberta'])){
@@ -59,6 +71,12 @@
 		$control = new QuestaoAbertaDAO($manager);
 		$control->editarQuestao($questoes_id,$unica_id);
 
-	} 
+	} else if(isset($_GET['id'])){
+
+		$id = $_GET['id'];
+		$control = new QuestaoAbertaDAO($id);
+		$control->deletarQuestao();
+
+	}
 
 ?>

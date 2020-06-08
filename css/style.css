@@ -240,3 +240,14 @@ tr:nth-child(even) {
 	top: 3.5px;
 	color: #ffffff;
 }
+
+/* CADASTRO DE EQUIPES */
+
+#cad-equipe-label-evento{
+	display: block;
+	margin-bottom: 5px;
+}
+
+#cad-equipe-divisor-select{
+	height: 52px;
+}

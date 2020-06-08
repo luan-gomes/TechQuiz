@@ -37,7 +37,7 @@
 							<a href="editar-aberta.php?id=<?php echo $dados['questoes_id'];?>" class="button-buscar-questao" id="editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href="deletar-aberta.php?id=<?php echo $dados['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							<a href="control/QuestaoAbertaDAO.php?id=<?php echo $dados['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 
@@ -86,7 +86,7 @@
 							<a href="editar-unica.php?id=<?php echo $dados_unica['questoes_id'];?>" class="button-buscar-questao" id="editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href="deletar-unica.php?id=<?php echo $dados_unica['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							<a href="control/QuestaoUnicaDAO.php?id=<?php echo $dados_unica['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 
@@ -132,7 +132,7 @@
 							<a href="editar-vf.php?id=<?php echo $dados_vf['questoes_id'];?>" class="button-buscar-questao" id="editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href="deletar-vf.php?id=<?php echo $dados_vf['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							<a href="control/QuestaoVFDAO.php?id=<?php echo $dados_vf['questoes_id'];?>" class="button-buscar-questao" id="deletar"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 
