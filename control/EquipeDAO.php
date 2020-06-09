@@ -16,8 +16,35 @@
 
 
 			$conexao = abrirConexao();
-			$sql = 'INSERT INTO gerenciador VALUES(null,"'.$this->gerenciador->login.'","'.$this->gerenciador->senha.'")';
-			mysqli_query($conexao,$sql);
+			//Insert na tabela equipe
+			$sql = 'INSERT INTO equipe VALUES(null,"'.$this->equipe->nome.'","'.$this->equipe->evento.'","'.$this->equipe->login.'","'.$this->equipe->senha.'")';
+			mysqli_query($conexao,$sql); 
+
+			//Insert membros
+			$sql1 = 'INSERT INTO membros VALUES("'.$this->equipe->matricula1.'","'.$this->equipe->membro1.'")';
+			mysqli_query($conexao,$sql1);
+			$sql11 = 'INSERT INTO equipe_has_membros VALUES(null,(SELECT max(id) FROM equipe),"'.$this->equipe->matricula1.'")';
+			mysqli_query($conexao,$sql11);
+
+			$sql2 = 'INSERT INTO membros VALUES("'.$this->equipe->matricula2.'","'.$this->equipe->membro2.'")';
+			mysqli_query($conexao,$sql2);
+			$sql21 = 'INSERT INTO equipe_has_membros VALUES(null,(SELECT max(id) FROM equipe),"'.$this->equipe->matricula2.'")';
+			mysqli_query($conexao,$sql21);
+
+			$sql3 = 'INSERT INTO membros VALUES("'.$this->equipe->matricula3.'","'.$this->equipe->membro3.'")';
+			mysqli_query($conexao,$sql3);
+			$sql31 = 'INSERT INTO equipe_has_membros VALUES(null,(SELECT max(id) FROM equipe),"'.$this->equipe->matricula3.'")';
+			mysqli_query($conexao,$sql31);
+
+			$sql4 = 'INSERT INTO membros VALUES("'.$this->equipe->matricula4.'","'.$this->equipe->membro4.'")';
+			mysqli_query($conexao,$sql4);
+			$sql41 = 'INSERT INTO equipe_has_membros VALUES(null,(SELECT max(id) FROM equipe),"'.$this->equipe->matricula4.'")';
+			mysqli_query($conexao,$sql41);
+
+			$sql5 = 'INSERT INTO membros VALUES("'.$this->equipe->matricula5.'","'.$this->equipe->membro5.'")';
+			mysqli_query($conexao,$sql5);
+			$sql51 = 'INSERT INTO equipe_has_membros VALUES(null,(SELECT max(id) FROM equipe),"'.$this->equipe->matricula5.'")';
+			mysqli_query($conexao,$sql51);
 			fecharConexao($conexao);
 
 		}
@@ -39,7 +66,7 @@
 		$membro5 =  $_POST['membro5'];
 		$matricula5 =  $_POST['matricula5'];
 
-		$manager = new Equipe($nome_evento,$semestre);
+		$manager = new Equipe($nome_equipe,$senha,$username,$evento,$membro1,$matricula1,$membro2,$matricula2,$membro3,$matricula3,$membro4,$matricula4,$membro5,$matricula5);
 		$control = new EquipeDAO($manager);
 		$control->cadastrarEquipe();
 

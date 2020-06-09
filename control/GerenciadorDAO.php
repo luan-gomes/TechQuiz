@@ -39,13 +39,21 @@
 			$sql = 'SELECT * FROM gerenciador WHERE login="'.$this->gerenciador->login.'" AND senha="'.$this->gerenciador->senha.'"';
 			$resultado = mysqli_query($conexao,$sql);
 
+			$sql_two = 'SELECT * FROM equipe WHERE login="'.$this->gerenciador->login.'" AND senha="'.$this->gerenciador->senha.'"';
+			$resultado_two = mysqli_query($conexao,$sql_two);
+
 			if(mysqli_num_rows($resultado)>0){
 				$dados = mysqli_fetch_array($resultado);
 				$_SESSION["id"] = $dados['id'];
 				$_SESSION["usuario"] = $dados['login'];
-				$mensagem['ok'] = '1';
+				$mensagem['gerenciador'] = '1';
 				die(json_encode($mensagem));
-				
+			} else if (mysqli_num_rows($resultado_two)>0){
+				$dados = mysqli_fetch_array($resultado);
+				$_SESSION["id"] = $dados['id'];
+				$_SESSION["usuario"] = $dados['login'];
+				$mensagem['equipe'] = '1';
+				die(json_encode($mensagem));
 			} else {
 				$mensagem['erro'] = "Usuário ou senha incorretos!";
 				die(json_encode($mensagem));

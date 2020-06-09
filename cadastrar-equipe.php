@@ -49,13 +49,24 @@
 						matricula5: $('#matricula5').val()
 					},
 					success:function(){
-						alert('Evento cadastrado com sucesso!');
-						$('#semestre').val('');
-						$('#nome_evento').val('');
-
+						alert('Equipe cadastrada com sucesso!');
+						$('#senha').val('');
+						$('#username').val('');
+						$('#evento').val('');
+						$('#nome_equipe').val('');
+						$('#membro1').val('');
+						$('#matricula1').val('');
+						$('#membro2').val('');
+						$('#matricula2').val('');
+						$('#membro3').val('');
+						$('#matricula3').val('');
+						$('#membro4').val('');
+						$('#matricula4').val('');
+						$('#membro5').val('');
+						$('#matricula5').val('');
 					},
 					error:function(){
-						alert('Infelizmente, não foi possível cadastrar esse evento!');
+						alert('Infelizmente, não foi possível cadastrar essa equipe!');
 					}
 				});
 					
@@ -118,8 +129,8 @@
 			</div>
 
 			<div class="inside-content-container">
-				<label for="matrícula1">Matrícula do membro 1</label>
-				<input id="matrícula1" type="text" name="matrícula1" required />
+				<label for="matricula1">Matrícula do membro 1</label>
+				<input id="matricula1" type="text" name="matricula1" required />
 			</div>
 
 			<div class="inside-content-container">
@@ -128,8 +139,8 @@
 			</div>
 
 			<div class="inside-content-container">
-				<label for="matrícula2">Matrícula do membro 2</label>
-				<input id="matrícula2" type="text" name="matrícula2" required />
+				<label for="matricula2">Matrícula do membro 2</label>
+				<input id="matricula2" type="text" name="matricula2" required />
 			</div>
 
 			<div class="inside-content-container">
@@ -138,8 +149,8 @@
 			</div>
 
 			<div class="inside-content-container">
-				<label for="matrícula3">Matrícula do membro 3</label>
-				<input id="matrícula3" type="text" name="matrícula3" required />
+				<label for="matricula3">Matrícula do membro 3</label>
+				<input id="matrícula3" type="text" name="matricula3" required />
 			</div>
 
 			<div class="inside-content-container">
@@ -148,8 +159,8 @@
 			</div>
 
 			<div class="inside-content-container">
-				<label for="matrícula4">Matrícula do membro 4</label>
-				<input id="matrícula4" type="text" name="matrícula4" required />
+				<label for="matricula4">Matrícula do membro 4</label>
+				<input id="matricula4" type="text" name="matricula4" required />
 			</div>
 
 			<div class="inside-content-container">
@@ -158,8 +169,8 @@
 			</div>
 
 			<div class="inside-content-container">
-				<label for="matrícula5">Matrícula do membro 5</label>
-				<input id="matrícula5" type="text" name="matrícula5" required />
+				<label for="matricula5">Matrícula do membro 5</label>
+				<input id="matricula5" type="text" name="matricula5" required />
 			</div>
 
 			<div id="login-container-button">

@@ -29,9 +29,11 @@
 					username: $('#login-username').val()
 				},
 				success:function(retorno){
-					if(retorno.ok){
+					if(retorno.gerenciador){
 						window.location.href = "welcome.php";
-					}else if(retorno.erro){
+					}else if(retorno.equipe){
+						window.location.href = "welcome-equipe.php";
+					} else if (retorno.erro){
 						$('#login-msg-error').html('');
 						$('#login-msg-error').html(retorno.erro);
 					}

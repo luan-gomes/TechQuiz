@@ -5,6 +5,7 @@
 		public $nome;
 		public $login;
 		public $senha;
+		public $evento;
 		public $membro1;
 		public $matricula1;
 		public $membro2;
@@ -16,9 +17,10 @@
 		public $membro5;
 		public $matricula5;
 
-		function __construct($nome, $senha,$login, $membro1,$matricula1, $membro2,$matricula2, $membro3,$matricula3, $membro4,$matricula4, $membro5,$matricula5){
+		function __construct($nome,$senha,$login,$evento,$membro1,$matricula1,$membro2,$matricula2,$membro3,$matricula3,$membro4,$matricula4,$membro5,$matricula5){
 			$this->nome = $nome;
 			$this->login = $login;
+			$this->evento = $evento;
 			$this->senha = $senha;
 			$this->membro1 = $membro1;
 			$this->matricula1 = $matricula1;
